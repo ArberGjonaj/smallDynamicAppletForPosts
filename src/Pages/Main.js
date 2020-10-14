@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -11,9 +11,18 @@ import NewsPage from "./NewsPage";
 import NavBar from "../Components/NavBar";
 import Error404 from "./Error404";
 import Footer from "../Components/Footer";
-export default class Main extends React.Component{
-    render(){
+
+const Main=()=>{
+  const [news,setNews]=useState([]);
+  console.log(news+"main")
+  console.log(localStorage.getItem("theNews"))
+
+  function handleChange(newValue) {
+    setNews(newValue);
+  } 
+ 
         return(
+        
        <div>
 <Router>
     <div>
@@ -22,16 +31,16 @@ export default class Main extends React.Component{
                  Item1={"News"} Item2={"Create"}/>
 <Switch>
           <Route exact path="/news/create">
-            <Create />
+            <Create setNews={handleChange}/>
           </Route>
           <Route exact path="/news">
-            <News />
+            <News news={news} />
           </Route>
           <Route exact path="/news/:id">
-            <NewsPage />
+            <NewsPage  />
             <Route exact path={"/404"} component={Error404}/>
-
-             <Redirect to={"/404"}/>
+       
+             
           </Route>
         </Switch>
         <Footer/>
@@ -40,5 +49,6 @@ export default class Main extends React.Component{
 </div>   
             
         )
-    }
+ 
 }
+export default  Main;

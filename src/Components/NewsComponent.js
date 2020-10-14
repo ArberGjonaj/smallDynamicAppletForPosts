@@ -1,28 +1,34 @@
 import React from "react";
-
+import { withRouter } from "react-router-dom";
 
 class NewsComponent extends React.Component{
     state={
-        titletext:this.props.titletext,
-        idOfPost:this.props.postId,
+        titletext:this.props.bodytext,
+        header:this.props.header,
         authorOfPost:this.props.authorOfPost,
-        dateOfPost:this.props.dateOfPost
+        dateOfPost:this.props.dateOfPost,
+        idOfPost:this.props.idOfPost
     }
 
     render(){
-
+const onClick =(event)=>{
+    event.preventDefault();
+    this.props.history.push("/news/"+this.state.idOfPost);
+}
         console.log(this.props.imagesource);
 console.log(this.props.name)
 
         return(<div>
-<a href={"http://localhost:3000/helpPage/" + this.state.idOfPost}>
-    <div className="card mb-4">
+<a onClick={onClick}>
+    <div key={this.props.idOfPost} className="card mb-4 d-flex justify-content-center">
 
     <div className="card-body">
         <div className="row">
             <div className="col-lg-6">
-                <h4 className="card-title">{this.state.titletext}</h4>
-
+                <h4 className="card-title">
+                   {this.state.header}
+                    </h4>
+               {this.state.titletext}
             </div>
             
         </div>
@@ -42,4 +48,4 @@ console.log(this.props.name)
 </div>
 )
 }}
-export default NewsComponent;
+export default withRouter(NewsComponent);

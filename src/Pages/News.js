@@ -1,20 +1,27 @@
 import React from "react";
 import NewsComponent from "../Components/NewsComponent";
-
+import {connect} from "react-redux"
 class News extends React.Component{
-  
-state={
-    newsList:[]
-}
+
+
+
+
+
+    renderLists(){
+      
+        return this.props.newsArray.map(
+            (newsArray,index)=>{
+                return  <NewsComponent   header={newsArray.headline} bodytext={newsArray.description} authorOfPost={newsArray.author}  dateOfPost={newsArray.date} idOfPost={index} />
+            }
+        )
+    }
 render(){
-    const news = Object.keys(this.state.newsList).map((key) => {
+ 
 
-        return(
 
-        <NewsComponent   titletext={this.state.newsList[key].title} bodytext={this.state.newsList[key].post} postId={this.state.newsList[key].id } authorOfPost={this.state.newsList[key].author}  dateOfPost={this.state.newsList[key].date}/>
-          )
+ 
 
-    })
+
     return(
         <React.Fragment>
             <div>
@@ -26,12 +33,17 @@ render(){
                      </h4>
                     <div className="px-3"> <hr style={{ borderTop:" 1px solid black", width:"50%"}}/>
                     </div>
-               <div>{news}</div> 
+               <div>{this.renderLists()}</div> 
             </div>
         </React.Fragment>
     )
 }
 }
+const mapStateToProps = (state) => {
+ 
+    return {
+      newsArray: state.news,
+    };
+  };
 
-
-export default News;
+export default connect(mapStateToProps)(News);
