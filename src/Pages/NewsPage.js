@@ -28,13 +28,9 @@ class NewsPage extends React.Component{
         return(
             <React.Fragment>
                 <div>
-                    <h1>NewsSite</h1>
-      <ol className="breadcrumb">
-    <li className="breadcrumb-item">
-        <a href="/">Home</a>
-    </li>
-    <li className="breadcrumb-item active">{"news/"+this.state.id}</li>
-</ol>
+                    <h2 className={"d-flex justify-content-center"}>NewsSite</h2>
+                    <div className="px-3"> <hr style={{ borderTop:" 1px solid black", width:"50%"}}/></div>
+      
         <div className="container">
 <h1 className="mt-4 mb-3">{this.props.newsArray[this.state.id].headline}
 </h1>
