@@ -14,7 +14,7 @@ class Create extends React.Component {
     };
   }
 render(){
- 
+
     const insertNews = event => {
         event.preventDefault();
         this.props.addNews([this.state.headline,this.state.description,this.state.author,this.state.date])
