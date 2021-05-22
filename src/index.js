@@ -13,8 +13,8 @@ ReactDOM.render(
 
 
   <Provider store={createStore(reducers)}>
-  <App />
-</Provider>,
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 
