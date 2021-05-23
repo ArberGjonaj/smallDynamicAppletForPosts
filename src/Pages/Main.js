@@ -11,7 +11,8 @@ import NewsPage from "./NewsPage";
 import NavBar from "../Components/NavBar";
 import Error404 from "./Error404";
 import Footer from "../Components/Footer";
-
+import Login from "../Pages/Login";
+import SingUp from "../Pages/SingUp";
 const Main=()=>{
   const [news,setNews]=useState([]);
   console.log(news+"main")
@@ -41,6 +42,15 @@ const Main=()=>{
             <Route exact path={"/404"} component={Error404}/>
        
              
+          </Route>
+          <Route exact path="/news">
+            <News news={news} />
+          </Route>
+          <Route exact path="/login">
+            <Login  />
+          </Route>
+          <Route exact path="/singup">
+            <SingUp />
           </Route>
         </Switch>
         <Footer/>
