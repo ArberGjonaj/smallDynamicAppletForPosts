@@ -11,13 +11,10 @@ import NewsPage from "./NewsPage";
 import NavBar from "../Components/NavBar";
 import Error404 from "./Error404";
 import Footer from "../Components/Footer";
-<<<<<<< HEAD
 import MyNews from "./MyNews";
 
-=======
 import Login from "../Pages/Login";
 import SingUp from "../Pages/SingUp";
->>>>>>> f7215efb2047c2405a330ee603e37c663ed8cdc6
 const Main=()=>{
   const [news,setNews]=useState([]);
   console.log(news+"main")
