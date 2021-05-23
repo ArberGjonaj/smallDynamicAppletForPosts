@@ -25,10 +25,13 @@ class NavBar extends React.Component{
     <Nav.Item>
         <NavLink to={"/news/create"}>Create</NavLink>
 </Nav.Item>
-    
 <Nav.Item>
-    <NavLink to={"/news/mynews"}>My News</NavLink>
-    </Nav.Item>
+        <NavLink to={"/login"}>Login</NavLink>
+</Nav.Item>
+<Nav.Item>
+        <NavLink to={"/singup"}>SingUp</NavLink>
+</Nav.Item>
+
 
     </Nav>
 
