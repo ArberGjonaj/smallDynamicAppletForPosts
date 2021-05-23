@@ -7,9 +7,9 @@ class Create extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      headline: null,
-      description:null,
-      author:null,
+      headline: 'null',
+      description:'null',
+      author:'null',
       date:null
     };
   }
@@ -31,7 +31,7 @@ render(){
             <Form>
               <Form.Group as={Col} controlId="formGridHeadline">
                 <Form.Label>HeadLine</Form.Label>
-                <Form.Control  onChange={(event )=>this.setState({ headline: event.target.value })}  type="text" placeholder="Headline" />
+                <Form.Control value={this.state.headline} onChange={(event )=>this.setState({ headline: event.target.value })}  type="text" placeholder="Headline" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridDescription">
