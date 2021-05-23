@@ -26,19 +26,24 @@ class Register extends React.Component {
   passwordHandler = (password) => {
     this.setState({ password: password });
   };
+  redirect=()=>{
+      console.log('clicked')
+    return this.props.history.push("/");
+  }
   login = () => {
-   const redirect=()=>{return this.props.history.push("/dashboard");}
+//   const redirect=()=>{return this.props.history.push("/news/create");}
     Server
       .post("/user_create", {
         username: this.state.username,
         password: this.state.password,
       })
-      .then(function (response) {
+      .then( (response)=>{
         const token = response.data.token;
         sessionStorage.setItem("access_token", token);
-        // redirect()
+         this.redirect()
       })
-      .catch(function (error) {
+      .catch((error)=>{
+        this.redirect()
         console.log(error);
       });
 
@@ -62,7 +67,7 @@ class Register extends React.Component {
                       <CInputGroup className="mb-3">
                         <CInputGroupPrepend>
                           <CInputGroupText>
-                            <CIcon name="cil-user" />
+                           Username
                           </CInputGroupText>
                         </CInputGroupPrepend>
                         <CInput
@@ -75,7 +80,7 @@ class Register extends React.Component {
                       <CInputGroup className="mb-4">
                         <CInputGroupPrepend>
                           <CInputGroupText>
-                            <CIcon name="cil-lock-locked" />
+                            Password
                           </CInputGroupText>
                         </CInputGroupPrepend>
                         <CInput
@@ -88,12 +93,12 @@ class Register extends React.Component {
                       <CRow>
                         <CCol xs="6">
                           <CButton color="primary" onClick={this.login} className="px-4">
-                            Login
+                            Register
                           </CButton>
                         </CCol>
                         <CCol xs="6" className="text-right">
-                          <CButton color="link" className="px-0">
-                            Forgot password?
+                          <CButton color="link" onClick={this.redirect} className="px-0">
+                            Login?
                           </CButton>
                         </CCol>
                       </CRow>

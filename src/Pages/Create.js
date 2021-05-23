@@ -3,13 +3,14 @@ import { connect } from "react-redux";
 import { addNews } from "../actions";
 import { Button, Col, Form } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
+import NavBar from "../Components/NavBar";
 class Create extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      headline: 'null',
-      description:'null',
-      author:'null',
+      headline: '',
+      description:'',
+      author:'',
       date:null
     };
   }
@@ -24,6 +25,8 @@ render(){
 
     return (
       <React.Fragment>
+                        <NavBar  ref1={"/news"} ref2={"/news/create"}
+                 Item1={"News"} Item2={"Create"}/>
         <div className="px-3 d-flex-vertical justify-content-center">
           <h3 className=" justify-content-center ">News Site</h3>
 

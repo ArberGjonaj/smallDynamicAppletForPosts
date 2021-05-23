@@ -26,8 +26,6 @@ const Main=()=>{
 <Router>
     <div>
          
-                <NavBar  ref1={"/news"} ref2={"/news/create"}
-                 Item1={"News"} Item2={"Create"}/>
 <Switch>
           <Route exact path="/news/create">
             <Create setNews={handleChange}/>
@@ -44,12 +42,8 @@ const Main=()=>{
           <Route exact path="/news">
             <News news={news} />
           </Route>
-          <Route exact path="/login">
-            <Login  />
-          </Route>
-          <Route exact path="/singup">
-            <SingUp />
-          </Route>
+          <Route exact path="/" component={Login}/>
+          <Route exact path="/singup" component={SingUp}/>
         </Switch>
         <Footer/>
         </div>

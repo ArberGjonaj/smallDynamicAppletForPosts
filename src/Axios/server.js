@@ -1,7 +1,7 @@
 import axios from "axios";
 
  const Axios =axios.create({
-  baseURL: "https://blue-tech.co:8443/",
+  baseURL: "localhost:5000",
   headers: { "Access-Control-Allow-Origin": "*" },
   
 });

@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 import {removeNews} from "../actions"
-
+import NavBar from "../Components/NavBar";
 class NewsPage extends React.Component{
     constructor(props){
         super(props);
@@ -27,6 +27,8 @@ class NewsPage extends React.Component{
         }
         return(
             <React.Fragment>
+                                <NavBar  ref1={"/news"} ref2={"/news/create"}
+                 Item1={"News"} Item2={"Create"}/>
                 <div>
                     <h2 className={"d-flex justify-content-center"}>NewsSite</h2>
                     <div className="px-3"> <hr style={{ borderTop:" 1px solid black", width:"50%"}}/></div>

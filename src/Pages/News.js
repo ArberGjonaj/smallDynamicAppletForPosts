@@ -1,6 +1,7 @@
 import React from "react";
 import NewsComponent from "../Components/NewsComponent";
 import {connect} from "react-redux"
+import NavBar from "../Components/NavBar";
 class News extends React.Component{
 
 
@@ -25,6 +26,8 @@ render(){
     return(
         <React.Fragment>
             <div>
+            <NavBar  ref1={"/news"} ref2={"/news/create"}
+                 Item1={"News"} Item2={"Create"}/>
              <h3 className="d-flex justify-content-center">
                  News Site
                  </h3>

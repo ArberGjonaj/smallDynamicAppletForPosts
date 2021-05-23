@@ -15,6 +15,7 @@ import {
   import CIcon from "@coreui/icons-react";
 import React from "react";
   import Server from '../Axios/server'
+  import { NavLink } from "react-router-dom";
 class Login extends React.Component {
     state = {
     username: "",
@@ -27,22 +28,24 @@ class Login extends React.Component {
     this.setState({ password: password });
   };
   login = () => {
-   const redirect=()=>{return this.props.history.push("/dashboard");}
-   Server
-      .post("/login", {
-        username: this.state.username,
-        password: this.state.password,
-      })
-      .then(function (response) {
-        const token = response.data.token;
-        sessionStorage.setItem("access_token", token);
-        // redirect()
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-  };
+      console.log(this.props.history)
+    const redirect=()=>{return this.props.history.push("/news/create");}
+     Server
+       .post("/user_create", {
+         username: this.state.username,
+         password: this.state.password,
+       })
+       .then((response)=>{
+         const token = response.data.token;
+         sessionStorage.setItem("access_token", token);
+          redirect()
+       })
+       .catch((error)=>{
+         console.log(error);
+         redirect()
+       });
+ 
+   };
   componentDidMount (){
 
   }
@@ -62,7 +65,7 @@ class Login extends React.Component {
                       <CInputGroup className="mb-3">
                         <CInputGroupPrepend>
                           <CInputGroupText>
-                            <CIcon name="cil-user" />
+                            Username
                           </CInputGroupText>
                         </CInputGroupPrepend>
                         <CInput
@@ -75,7 +78,7 @@ class Login extends React.Component {
                       <CInputGroup className="mb-4">
                         <CInputGroupPrepend>
                           <CInputGroupText>
-                            <CIcon name="cil-lock-locked" />
+                           Password
                           </CInputGroupText>
                         </CInputGroupPrepend>
                         <CInput
@@ -93,7 +96,7 @@ class Login extends React.Component {
                         </CCol>
                         <CCol xs="6" className="text-right">
                           <CButton color="link" className="px-0">
-                            Forgot password?
+                          <NavLink to={"/singup"}>Sing Up</NavLink>
                           </CButton>
                         </CCol>
                       </CRow>
