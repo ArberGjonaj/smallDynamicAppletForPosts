@@ -44,7 +44,7 @@ class NewsPage extends React.Component{
     </div>
     <div className="col-md-4">
         <div className="align-bottom">
-             <div className="card-footer text-muted ">
+             <div className="card-footer text-muted d-inline">
   By {this.props.newsArray[this.state.id].author}
      
 
