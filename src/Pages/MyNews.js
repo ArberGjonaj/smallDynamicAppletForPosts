@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchNews } from '../actions';
 
 //Button will move to modify page of the news
+//Fetch request will take the list from the backend
 class MyNews extends React.Component {
     componentDidMount() {
         this.props.fetchNews();
