@@ -15,8 +15,6 @@ import Login from "../Pages/Login";
 import SingUp from "../Pages/SingUp";
 const Main=()=>{
   const [news,setNews]=useState([]);
-  console.log(news+"main")
-  console.log(localStorage.getItem("theNews"))
 
   function handleChange(newValue) {
     setNews(newValue);
