@@ -14,7 +14,7 @@ import {
   } from "@coreui/react";
   import CIcon from "@coreui/icons-react";
 import React from "react";
-
+import Server from '../Axios/server'
 class Register extends React.Component {
     state = {
     username: "",
@@ -28,7 +28,7 @@ class Register extends React.Component {
   };
   login = () => {
    const redirect=()=>{return this.props.history.push("/dashboard");}
-    iotApi
+    Server
       .post("/user_create", {
         username: this.state.username,
         password: this.state.password,
