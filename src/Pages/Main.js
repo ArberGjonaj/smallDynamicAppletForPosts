@@ -11,6 +11,7 @@ import NewsPage from "./NewsPage";
 import NavBar from "../Components/NavBar";
 import Error404 from "./Error404";
 import Footer from "../Components/Footer";
+import MyNews from "./MyNews";
 
 const Main=()=>{
   const [news,setNews]=useState([]);
@@ -36,6 +37,9 @@ const Main=()=>{
           <Route exact path="/news">
             <News news={news} />
           </Route>
+          <Route exact path="/news/mynews">
+						<MyNews />
+					</Route>
           <Route exact path="/news/:id">
             <NewsPage  />
             <Route exact path={"/404"} component={Error404}/>
