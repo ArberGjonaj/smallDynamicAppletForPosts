@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import { withRouter } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
@@ -31,35 +31,33 @@ class NewsPage extends React.Component{
                     <h2 className={"d-flex justify-content-center"}>NewsSite</h2>
                     <div className="px-3"> <hr style={{ borderTop:" 1px solid black", width:"50%"}}/></div>
       
-        <div className="container">
-<h1 className="mt-4 mb-3">{this.props.newsArray[this.state.id].headline}
-</h1>
+                    <div className="container">
+                        <h1 className="mt-4 mb-3">{this.props.newsArray[this.state.id].headline}</h1>
 
-<div className="row">
-    <div className="col-lg-8">
-        <p >{this.props.newsArray[this.state.id].description}</p>
-        <hr/>
-    </div>
-    <div className="col-md-4">
-        <div className="align-bottom">
-             <div className="card-footer text-muted ">
-  By {this.props.newsArray[this.state.id].author}
-     
+                        <div className="row">
+                            <div className="col-lg-8">
+                                <p >{this.props.newsArray[this.state.id].description}</p>
+                                <hr/>
+                            </div>
 
-    </div>
-    <div className="card-footer text-muted d-inline">
-    {this.props.newsArray[this.state.id].date}
+                            <div className="col-md-4">
+                                <div className="align-bottom">
+                                    <div className="card-footer text-muted ">
+                                        By {this.props.newsArray[this.state.id].author}
+                                    </div>
+                                    <div className="card-footer text-muted d-inline">
+                                        {this.props.newsArray[this.state.id].date}
      
-    </div>
-    </div>
+                                    </div>
+                                </div>
    
-</div>
-</div>
-<Button onClick={goBack} className="justify-content-start">Go Back!</Button>
+                            </div>
+                        </div>
+                        <Button onClick={goBack} className="justify-content-start">Go Back!</Button>
 
-<Button onClick={deleteList} className=" justify-content-end" >Delete!</Button>
+                        <Button onClick={deleteList} className=" justify-content-end" >Delete!</Button>
 
-                </div>
+                    </div>
                 </div>
             </React.Fragment>
         )
